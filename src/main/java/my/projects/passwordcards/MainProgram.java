@@ -4,8 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PasswordCards {
+public class MainProgram {
     public static void main(String[] args) {
-        SpringApplication.run(PasswordCards.class, args);
+        SpringApplication.run(MainProgram.class, args);
     }
 }

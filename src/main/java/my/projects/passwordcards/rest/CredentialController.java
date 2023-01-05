@@ -13,23 +13,32 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class CredentialController {
 
     @Autowired
-    private CredentialService service;
+    private CredentialService credentialService;
 
     @RequestMapping("/")
     public String viewHomePage(Model model) {
         return "index";
     }
 
-    @RequestMapping(value = "/save", method = RequestMethod.GET)
-    public String saveCredentail(@ModelAttribute("credential") Credential credential) {
-        service.save(credential);
-        return "index";
-//        return "redirect:/";
+
+    @RequestMapping("/new")
+    public String showNewCredentialPage(Model model) {
+        Credential credential = new Credential();
+        model.addAttribute("credential", credential);
+        // display 'newCredential' html page
+        return "newCredential";
+    }
+
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    public String saveCredential(@ModelAttribute("credential") Credential credential) {
+        credentialService.save(credential);
+        // go back to the main page - index.html
+        return "redirect:/";
     }
 
     @RequestMapping(value = "/get", method = RequestMethod.GET)
     public String getCredential(@ModelAttribute("credential") Credential credential) {
-        service.get(1);
+        credentialService.get(1);
         return "index";
 //        return "redirect:/";
     }

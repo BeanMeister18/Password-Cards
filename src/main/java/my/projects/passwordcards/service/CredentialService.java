@@ -14,7 +14,7 @@ public class CredentialService {
 
     public void save(Credential credential) {
         System.err.println("Doing 'save'");
-//        repo.save(credential);
+        repo.save(credential);
     }
 
     public Credential get(long id) {

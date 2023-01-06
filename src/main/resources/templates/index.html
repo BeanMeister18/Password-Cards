@@ -10,6 +10,27 @@
     <h1>Password List</h1>
     <a href="/new">Add New Site</a>
     <br/><br/>
+    <table border="1" cellpadding="10"> <!NEW>
+        <thead>
+        <tr>
+            <th>Website Name</th>
+            <th>Username</th>
+            <th>Password</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="credential : ${listCredential}">
+            <td th:text="${credential.website}">username</td>
+            <td th:text="${credential.username}">Brand</td>
+            <td th:text="${credential.password}">Made in</td>
+            <td>
+                <a th:href="@{'/edit/' + ${credential.id}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/delete/' + ${credential.id}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 </body>
 </html>

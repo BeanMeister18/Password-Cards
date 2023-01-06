@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional
 public class CredentialService {
@@ -13,14 +15,19 @@ public class CredentialService {
     private CredentialRepository repo;
 
     public void save(Credential credential) {
-        System.err.println("Doing 'save'");
         repo.save(credential);
     }
 
+    public List<Credential> listAll() {
+        return repo.findAll();
+    }
+
     public Credential get(long id) {
-        System.err.println("Doing 'get'");
-        return null;
-//        return repo.findById(id).get();
+        return repo.findById(id).get();
+    }
+
+    public void delete(long id) { //NEW!!!
+        repo.deleteById(id);
     }
 
 }

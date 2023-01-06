@@ -1,9 +1,18 @@
-#IDEA project files
-.idea\
+/target/
+*/target/**
+**/META-INF/
+
+### IntelliJ IDEA ###
 .idea
+.idea/**
+*.iws
+*.iml
+*.ipr
+
+
 
 #Binaries
-target\
+target\*
 
 # Compiled class file
 *.class

@@ -26,7 +26,7 @@ public class CredentialService {
         return repo.findById(id).get();
     }
 
-    public void delete(long id) { //NEW!!!
+    public void delete(long id) {
         repo.deleteById(id);
     }
 
